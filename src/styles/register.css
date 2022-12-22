@@ -1,0 +1,24 @@
+.form-register{
+    width: 60%;
+    margin:0 auto;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.personal-data{
+    width: 40%;
+    float: left;    
+}
+.credential-data{
+    width: 40%;
+    float: left;
+}
+.equals{
+    /* background-color: green; */
+    border-bottom: 5px solid;
+    border-bottom-color: green;
+}
+.not_equals{
+    border-bottom: 5px solid;
+    border-bottom-color: red;
+}

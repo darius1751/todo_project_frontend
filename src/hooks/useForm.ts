@@ -10,7 +10,7 @@ export type UseFormResponse<T> = [
     ( e:ChangeEvent<HTMLInputElement> ) => void
 ];
 
-export const useForm = <T> ( initialValue:T ):UseFormResponse<T> => {
+export const useForm = <T> ( initialValue:T ): UseFormResponse<T> => {
     
     const [ data, setData ] = useState<T>(initialValue);
     const handleChange = ( e:ChangeEvent<HTMLInputElement> ) => {

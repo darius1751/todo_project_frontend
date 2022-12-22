@@ -6,7 +6,7 @@ import '../styles/login.css';
 import { PersonSlice } from "../store/slices/personSlice";
 import { PersonStore } from "../store";
 import { httpLoginHelper } from "../helpers/httpLoginHelper";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 export const initCredential:Credential = {
@@ -45,7 +45,11 @@ export const Login = ( ) => {
                     <input type={"password"} name="password" value={ credential.password } onChange={handleChange} placeholder='Ingrese su contraseña' className="form-input-text"/>
                     <br />
                     <br />
-                    <input type={'submit'} value='Iniciar sesion' className="form-btn"/>                   
+                    <input type={'submit'} value='Iniciar sesion' className="form-btn"/>
+                    <br />
+                    <small>
+                        <NavLink to='/register'>Registrarme ahora</NavLink>
+                    </small>                  
                 </form>
             </div>
             
