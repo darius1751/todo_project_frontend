@@ -1,6 +1,6 @@
 import {ajax, AjaxError} from 'rxjs/ajax';
-import { ENDPOINT_FIND_ALL_STATES} from '../constants/endpoints';
-import { State } from '../models';
+import { ENDPOINT_FIND_ALL_STATES} from '../../constants/endpoints';
+import { State } from '../../models';
 
 export const httpFindAllStates = (setState:Function) => {
     ajax.getJSON<State[]>(`${ENDPOINT_FIND_ALL_STATES}`)

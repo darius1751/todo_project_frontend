@@ -5,7 +5,7 @@ import { Credential } from "../models";
 import '../styles/login.css';
 import { PersonSlice } from "../store/slices/personSlice";
 import { PersonStore } from "../store";
-import { httpLoginHelper } from "../helpers/httpLoginHelper";
+import { httpLoginHelper } from "../helpers/http/httpLoginHelper";
 import { NavLink, useNavigate } from "react-router-dom";
 
 

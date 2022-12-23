@@ -1,7 +1,7 @@
 import {ajax, AjaxError} from 'rxjs/ajax';
-import { ENDPOINT_FIND_ONE_PERSON_BY_CREDENTIAL_ID} from '../constants/endpoints';
-import { Person } from '../models';
-import { login } from '../store/slices/personSlice';
+import { ENDPOINT_FIND_ONE_PERSON_BY_CREDENTIAL_ID} from '../../constants/endpoints';
+import { Person } from '../../models';
+import { login } from '../../store/slices/personSlice';
 
 export const httpFindPerson = (id:string,dispatch:any) => {
     ajax.post<Person>(`${ENDPOINT_FIND_ONE_PERSON_BY_CREDENTIAL_ID}${id}`)

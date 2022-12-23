@@ -3,6 +3,7 @@ import { Person } from "../../models";
 export const initialPerson:Person = {
     email:'',
     name:'',
+    phone:''
 
 }
 export type PersonSlice = {

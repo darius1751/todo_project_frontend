@@ -1,17 +1,18 @@
 import {Credential} from '../models';
 import {useForm} from '../hooks/useForm';
 import {KeyboardEvent, useState} from 'react';
-type CredentiaForm = Credential & { confirmPassword: string };
+import { CredentialForm } from '../pages/Register';
 
-const initialCredential: CredentiaForm = {
-  username: "",
-  password: "",
-  confirmPassword: "",
-};
-export const ColumnCredentialData = () => {
+type PropsColumnCredentialData = {
+  credential: CredentialForm,
+  handleChangeCredentialData: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
-    const [credential, setCredential, handleChangeCredentialData] =  useForm<CredentiaForm>(initialCredential);
+export const ColumnCredentialData = ({credential, handleChangeCredentialData}:PropsColumnCredentialData) => {
+
+    
     const [equals, setEquals] = useState('');
+
     const handleKeyUp = (e:KeyboardEvent<HTMLInputElement>) => {
         const {password, confirmPassword} = credential;
         if(confirmPassword != '')
@@ -19,6 +20,7 @@ export const ColumnCredentialData = () => {
         else
           setEquals('');            
     }
+
     return (
         <section className="credential-data">
           <label htmlFor="username" className="form-label">

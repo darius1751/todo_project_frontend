@@ -6,7 +6,7 @@ import { PersonStore } from "../store";
 import { PersonSlice } from "../store/slices/personSlice";
 import { State } from "../models";
 import { ColumnStateTask } from "../components/ColumnStateTask";
-import { httpFindAllStates } from "../helpers/httpFindAllStates";
+import { httpFindAllStates } from "../helpers/http/httpFindAllStates";
 export const Dashboard = ( ) => {
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
     const navigate = useNavigate();
