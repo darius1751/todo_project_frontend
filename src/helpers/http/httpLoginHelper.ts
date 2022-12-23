@@ -1,6 +1,6 @@
 import {ajax, AjaxError} from 'rxjs/ajax';
-import { ENDPOINT_LOGIN } from '../constants/endpoints';
-import { Credential } from "../models";
+import { ENDPOINT_LOGIN } from '../../constants/endpoints';
+import { Credential } from "../../models";
 import { httpFindPerson } from './httpFindPerson';
 
 

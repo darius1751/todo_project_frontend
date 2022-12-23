@@ -11,8 +11,7 @@
 }
 .credential-data{
     width: 40%;
-    float: left;
-}
+    float: left;}
 .equals{
     /* background-color: green; */
     border-bottom: 5px solid;
@@ -21,4 +20,9 @@
 .not_equals{
     border-bottom: 5px solid;
     border-bottom-color: red;
+}
+.form-btn-register{
+    display: inline-block;
+    margin-right:20%;
+    margin-top: 5%;   
 }

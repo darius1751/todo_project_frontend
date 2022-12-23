@@ -1,8 +1,15 @@
 import { useForm } from "../hooks/useForm";
+
 import { Person } from "../models";
 import { initialPerson } from "../store/slices/personSlice";
-export const ColumnPersonalData = () => {
-    const [person, setPerson, handleChangePersonalData] = useForm<Person>(initialPerson);
+type PropsColumnPersonalData = {
+  personalData:Person,
+  handleChangePersonalData: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+export const ColumnPersonalData = ({personalData, handleChangePersonalData}:PropsColumnPersonalData) => {
+
+    
+
     return (
         <section className="personal-data">
           <label htmlFor="name" className="form-label">
@@ -15,7 +22,7 @@ export const ColumnPersonalData = () => {
             placeholder="Ingrese su nombre"
             id="name"
             className="form-input-text"
-            value={person.name}
+            value={personalData.name}
             onChange={handleChangePersonalData}
           />
           <br />
@@ -29,7 +36,7 @@ export const ColumnPersonalData = () => {
             placeholder="Ingrese su email"
             id="email"
             className="form-input-text"
-            value={person.email}
+            value={personalData.email}
             onChange={handleChangePersonalData}
           />
           <br />
@@ -43,7 +50,7 @@ export const ColumnPersonalData = () => {
             placeholder="Ingrese su telefono"
             id="phone"
             className="form-input-text"
-            value={person.phone}
+            value={personalData.phone}
             onChange={handleChangePersonalData}
           />
           <br />
