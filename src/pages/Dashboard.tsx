@@ -11,21 +11,21 @@ import '../styles/dashboard.css';
 export const Dashboard = ( ) => {
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
     const navigate = useNavigate();
-    const [states, setStates] = useState<State[]>();
+    const [states, setStates] = useState<State[]>([]);
     useEffect(() => {
         if(!person.id)
             navigate('/login');
-        console.log('Effect');
         httpFindAllStates(setStates);
+
     },[])
     return (
         <div className="dashboard">
             <DashboardNav/>
             <h2>Bienvenido: {person.name}</h2>
-
-            <article className="tasks">
+            
+            <article className="states">
                 {
-                    states?.map((state) => <ColumnStateTask key = {Date.now()+Math.random()} state={state}/>)
+                    states.map((state) => <ColumnStateTask key = {Date.now()+Math.random()} state={state}/>)
                 }
             </article>
         </div>
