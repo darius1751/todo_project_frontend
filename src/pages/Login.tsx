@@ -15,7 +15,7 @@ export const initCredential:Credential = {
 }
 export const Login = ( ) => { 
 
-    const [credential, setCredential,handleChange] = useForm<Credential>(initCredential);
+    const [credential, handleChange] = useForm<Credential>(initCredential);
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
     const dispatch = useDispatch();
     const navigate = useNavigate();
