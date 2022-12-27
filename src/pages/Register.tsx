@@ -19,10 +19,11 @@ const initialCredential: CredentialForm = {
 };
 export const Register = () => {
 
-  const [personalData, setPersonalData, handleChangePersonalData] = useForm<Person>(initialPerson);
-  const [credential, setCredential, handleChangeCredentialData] =  useForm<CredentialForm>(initialCredential);
+  const [personalData,  handleChangePersonalData] = useForm<Person>(initialPerson);
+  const [credential, handleChangeCredentialData] =  useForm<CredentialForm>(initialCredential);
   
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    
     e.preventDefault();
     const {name, email,phone = ''} = personalData;
     const {password, confirmPassword, username} = credential;

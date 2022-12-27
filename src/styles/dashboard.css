@@ -1,0 +1,11 @@
+.tasks{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.column-state-task{
+    background-color: red;
+    display: inline-block;
+    margin:2em;
+    width: 20%;
+}

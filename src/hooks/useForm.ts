@@ -6,7 +6,6 @@ export type UseFormData<T> = {
 
 export type UseFormResponse<T> = [
     T,
-    React.Dispatch<React.SetStateAction<T>>,
     ( e:ChangeEvent<HTMLInputElement> ) => void
 ];
 
@@ -22,7 +21,6 @@ export const useForm = <T> ( initialValue:T ): UseFormResponse<T> => {
 
     return [
         data,
-        setData,
         handleChange
     ]
 }
