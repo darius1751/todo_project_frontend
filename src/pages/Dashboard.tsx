@@ -4,18 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { DashboardNav } from "../components/DashboardNav";
 import { PersonStore } from "../store";
 import { PersonSlice } from "../store/slices/personSlice";
-import { State } from "../models";
 import { ColumnStateTask } from "../components/ColumnStateTask";
-import { httpFindAllStates } from "../helpers/http/httpFindAllStates";
+import { httpFindAllTasks } from "../helpers/http/httpFindAllTasks";
 import '../styles/dashboard.css';
 export const Dashboard = ( ) => {
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
     const navigate = useNavigate();
-    const [states, setStates] = useState<State[]>([]);
+    const [tasks, setTasks] = useState<any>({});
     useEffect(() => {
         if(!person.id)
             navigate('/login');
-        httpFindAllStates(setStates);
+        else
+            httpFindAllTasks(person.id,setTasks);
 
     },[])
     return (
@@ -23,9 +23,11 @@ export const Dashboard = ( ) => {
             <DashboardNav/>
             <h2>Bienvenido: {person.name}</h2>
             
-            <article className="states">
+            <article className="states-tasks">
                 {
-                    states.map((state) => <ColumnStateTask key = {Date.now()+Math.random()} state={state}/>)
+                    Object.keys(tasks).map((name, index) => {
+                        return (<ColumnStateTask name={name} tasks={tasks[name]} key={index}/>)
+                    })
                 }
             </article>
         </div>
