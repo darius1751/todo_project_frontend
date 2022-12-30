@@ -1,11 +1,10 @@
 import {Routes, HashRouter, Route, useNavigate} from 'react-router-dom';
 import {Login,Index} from './pages';
 import './App.css'
-import { Provider, useSelector } from 'react-redux';
-import {PersonStore, store} from './store';
+import { Provider} from 'react-redux';
+import { store } from './store';
 import { Dashboard } from './pages/Dashboard';
 import { Register } from './pages/Register';
-import { PersonSlice } from './store/slices/personSlice';
 
 export const App = () => {
 
