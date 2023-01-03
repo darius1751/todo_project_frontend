@@ -7,6 +7,8 @@ import { PersonSlice } from "../store/slices/personSlice";
 import { PersonStore } from "../store";
 import { httpLoginHelper } from "../helpers/http/httpLoginHelper";
 import { NavLink, useNavigate } from "react-router-dom";
+import { Footer } from "../components/Footer";
+import { validateLogin } from "../helpers/validations/validateLogin";
 
 
 export const initCredential:Credential = {
@@ -25,10 +27,17 @@ export const Login = ( ) => {
             navigate('/dashboard');
         }
             
-    },[person])
+    },[person]);
     const handleSubmit = ( e:FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
-        httpLoginHelper(credential, dispatch);        
+        try{
+            validateLogin(credential);
+            httpLoginHelper(credential, dispatch);        
+        }catch(exception){
+            console.log({exception});
+        }
+        
+        
         // dispath(login({name:'Luis', email:'luis@gmail.com'}));
     }
 
@@ -36,7 +45,7 @@ export const Login = ( ) => {
         
             <div className="login">
                 <form onSubmit = {handleSubmit} className='form'>
-                    <label htmlFor="username" className="form-label">Username:</label>
+                    <label htmlFor="username" className="form-label">Username</label>
                     <br />
                     <input type={"text"} name="username" value={ credential.username } onChange={handleChange} placeholder='Ingrese su usuario' className="form-input-text"/>
                     <br />
@@ -51,6 +60,7 @@ export const Login = ( ) => {
                         <NavLink to='/register'>Registrarme ahora</NavLink>
                     </small>                  
                 </form>
+                <Footer/>
             </div>
             
     )

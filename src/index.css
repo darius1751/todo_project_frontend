@@ -1,6 +1,22 @@
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('./assets/fonts/RobotoSlab-Regular.ttf');
+}
+@font-face{
+  font-family: 'Roboto Slab Black';
+  src: url('./assets/fonts/RobotoSlab-Black.ttf');
+}
 :root {
   font-size: 16px;
   color-scheme: light dark;
   color: #ffffffde;
   background-color: #242424;
+}
+footer{
+  position: absolute;
+  top: 90%;
+  left: 30px;  
+}
+footer > p {
+  text-align: initial;
 }
