@@ -1,0 +1,39 @@
+.states-tasks{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.column-state-task{
+    position: relative;
+    background-color: red;
+    display: inline-block;
+    margin:2em;
+    width: 20%;
+    top:60%;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px 5px black;
+}
+.tasks{
+    background-color: aqua;
+    height: 20em;
+    overflow-y: scroll;
+}
+.task{
+    color:#242424;
+    margin: 0 auto;
+    border-radius: 5px 5px 5px 5px;
+    width: 75%;
+    background-color: aquamarine;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 10px black;
+    cursor: move;
+}
+.task-name{
+    padding-top: 10px;
+}
+.task-description{
+    margin-bottom: 10px;
+}
+.task-date{
+    padding: 5px 0px;
+}
