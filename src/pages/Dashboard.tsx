@@ -7,6 +7,7 @@ import { PersonSlice } from "../store/slices/personSlice";
 import { ColumnStateTask } from "../components/ColumnStateTask";
 import { httpFindAllTasks } from "../helpers/http/httpFindAllTasks";
 import '../styles/dashboard.css';
+import { Footer } from "../components/Footer";
 export const Dashboard = ( ) => {
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ export const Dashboard = ( ) => {
                     })
                 }
             </article>
+            <Footer/>
         </div>
     )
 

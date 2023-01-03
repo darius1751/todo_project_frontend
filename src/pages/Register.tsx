@@ -2,6 +2,7 @@ import { FormEvent } from "react";
 import { NavLink } from "react-router-dom";
 import { ColumnCredentialData } from "../components/ColumnCredentialData";
 import { ColumnPersonalData } from "../components/ColumnPersonalData";
+import { Footer } from "../components/Footer";
 import { isValidPassword, isValidEmail, isValidPhone } from "../helpers/validations";
 import { isValidName } from "../helpers/validations/validName";
 import { useForm } from "../hooks/useForm";
@@ -50,6 +51,7 @@ export const Register = () => {
           Ya tengo cuenta
         </NavLink>
       </form>
+      <Footer/>
     </div>
   );
 };
