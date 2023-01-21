@@ -9,7 +9,30 @@
     background-color: #1212ae29;
 }
 .modal{
+    border-radius: 5px;
+    width: 30%;
+    background-color: gray;
     position: absolute;
     top:40%;
-    left: 40%;
+    left: 35%;
+    box-shadow: 5px 5px 12px black;
+}
+.modal-boton{
+    margin-bottom: 10px;
+    margin-top: 10px ;
+}
+.modal-error{
+    background-color: #880c0c;
+}
+.modal-info{
+    background-color: #4141f3;
+}
+.modal-success{
+    background-color: #49e649;
+}
+
+.modal-message > p{
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
 }

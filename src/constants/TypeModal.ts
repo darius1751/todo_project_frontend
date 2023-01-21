@@ -3,3 +3,4 @@ export enum TypeModal{
     ERROR,
     SUCCESS
 }
+export const typesModal = ['info', 'error', 'success'];

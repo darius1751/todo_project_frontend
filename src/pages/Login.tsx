@@ -2,13 +2,16 @@ import { FormEvent, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../hooks/useForm";
 import { Credential } from "../models";
-import '../styles/login.css';
 import { PersonSlice } from "../store/slices/personSlice";
 import { PersonStore } from "../store";
 import { httpLoginHelper } from "../helpers/http/httpLoginHelper";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { validateLogin } from "../helpers/validations/validateLogin";
+import { useModal } from "../hooks/useModal";
+import { Modal } from "../components/Modal";
+import { TypeModal } from "../constants/TypeModal";
+import '../styles/login.css';
 
 
 export const initCredential:Credential = {
@@ -19,6 +22,7 @@ export const Login = ( ) => {
 
     const [credential, handleChange] = useForm<Credential>(initCredential);
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
+    const [visible, setVisible, modalData, setModalData, activeModal] = useModal();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(()=>{
@@ -28,17 +32,27 @@ export const Login = ( ) => {
         }
             
     },[person]);
-    const handleSubmit = ( e:FormEvent<HTMLFormElement> ) => {
+    const handleSubmit = async ( e:FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
         try{
             validateLogin(credential);
-            httpLoginHelper(credential, dispatch);        
-        }catch(exception){
-            console.log({exception});
+            await httpLoginHelper(credential, dispatch); 
+            if(!person.id)
+                activeModal({
+                    ...modalData, 
+                    type:TypeModal.ERROR,
+                    title:'Error Login',
+                    message: 'user and password not match'
+                });
+
+        }catch(exception:any){
+            activeModal({
+                ...modalData, 
+                type:TypeModal.ERROR,
+                title:'Exception',
+                message: exception.message            
+            });
         }
-        
-        
-        // dispath(login({name:'Luis', email:'luis@gmail.com'}));
     }
 
     return (
@@ -60,6 +74,7 @@ export const Login = ( ) => {
                         <NavLink to='/register'>Registrarme ahora</NavLink>
                     </small>                  
                 </form>
+                { visible && <Modal {...modalData}/>}
                 <Footer/>
             </div>
             
