@@ -15,7 +15,7 @@ export const httpLoginHelper = async (credential:Credential, dispatch:any) => {
             },
         error:(error:AjaxError) => {
             const {message, response, status} = error;
-            console.warn({
+            console.log({
                 status,
                 response,
                 message

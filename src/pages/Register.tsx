@@ -3,9 +3,13 @@ import { NavLink } from "react-router-dom";
 import { ColumnCredentialData } from "../components/ColumnCredentialData";
 import { ColumnPersonalData } from "../components/ColumnPersonalData";
 import { Footer } from "../components/Footer";
+import { Modal } from "../components/Modal";
+import { TypeModal } from "../constants/TypeModal";
 import { isValidPassword, isValidEmail, isValidPhone } from "../helpers/validations";
 import { isValidName } from "../helpers/validations/validName";
+import { isEqualsPassword } from "../helpers/validations/validPassword";
 import { useForm } from "../hooks/useForm";
+import { useModal } from "../hooks/useModal";
 import { Person, Credential } from "../models";
 import { initialPerson } from "../store/slices/personSlice";
 
@@ -22,7 +26,7 @@ export const Register = () => {
 
   const [personalData,  handleChangePersonalData] = useForm<Person>(initialPerson);
   const [credential, handleChangeCredentialData] =  useForm<CredentialForm>(initialCredential);
-  
+  const [visibleModal, setVisibleModal, modalData, setModalData, activeModal] = useModal();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     
     e.preventDefault();
@@ -31,12 +35,18 @@ export const Register = () => {
     try{
       isValidName(name);
       isValidName(username);
-      isValidPassword(password, confirmPassword);
+      isEqualsPassword(password, confirmPassword);
       isValidEmail(email);
       isValidPhone(phone);
       
     }catch(exception:any){
-      console.log({exception})
+      activeModal({
+        ...modalData, 
+        message: exception.message,
+        title:'Error Register',
+        type:TypeModal.ERROR
+      })
+      console.log({exception});
     }
   };
 
@@ -51,6 +61,7 @@ export const Register = () => {
           Ya tengo cuenta
         </NavLink>
       </form>
+      {visibleModal && <Modal {...modalData}/>}
       <Footer/>
     </div>
   );
