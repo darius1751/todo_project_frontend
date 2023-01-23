@@ -25,7 +25,7 @@ export const Dashboard = ( ) => {
 
     },[])
     return (
-        <div className="dashboard">
+        <div className="dashboard dashboard-page">
             <DashboardNav/>
             <h2>Bienvenido: {person.name}</h2>
             

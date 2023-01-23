@@ -13,6 +13,9 @@
   color: #ffffffde;
   background-color: #242424;
 }
+.dashboard-page{
+  margin-top: 50px;
+}
 footer{
   position: absolute;
   top: 90%;

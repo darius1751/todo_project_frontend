@@ -1,5 +1,5 @@
 import {Routes, HashRouter, Route, useNavigate} from 'react-router-dom';
-import {Login,Index} from './pages';
+import {Login,Index, CreateTask} from './pages';
 import './App.css'
 import { Provider} from 'react-redux';
 import { store } from './store';
@@ -15,8 +15,8 @@ export const App = () => {
           <Routes>
             <Route path='/' element={<Index/>}/>
             <Route path='login' element={<Login/>}/>
-            <Route path='dashboard' element={<Dashboard/>}>
-            </Route>
+            <Route path='dashboard' element={<Dashboard/>}/>
+            <Route path='dashboard/create-task' element={<CreateTask/>}/>
             <Route path='register' element={<Register/>}/>
           </Routes>
         </HashRouter>
