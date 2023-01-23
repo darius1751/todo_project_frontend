@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom"
-
+import '../styles/dashboard-nav.css';
 export const DashboardNav = () => {
     return(
-        <nav>
+        <nav className="dashboard-nav">
             <NavLink to = {'/dashboard'}>
                 Inicio
             </NavLink>
-            <NavLink to = {'/dashboard/create-type'}>
-                Crear tipos
+            <NavLink to = {'/dashboard/create-task'}>
+                Crear tarea
             </NavLink>
         </nav>
     )

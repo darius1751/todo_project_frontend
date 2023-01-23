@@ -1,3 +1,6 @@
+.dashboard{
+    margin-top: 50px;
+}
 .states-tasks{
     text-align: center;
     width: 80%;
@@ -26,7 +29,7 @@
     background-color: aquamarine;
     margin-bottom: 10px;
     box-shadow: 3px 3px 10px black;
-    cursor: move;
+    cursor:pointer;
 }
 .task-name{
     padding-top: 10px;
