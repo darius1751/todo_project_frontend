@@ -1,16 +1,22 @@
 import { FormEvent, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "../hooks/useForm";
-import { Credential } from "../models";
+import { NavLink, useNavigate } from "react-router-dom";
+
 import { PersonSlice } from "../store/slices/personSlice";
 import { PersonStore } from "../store";
-import { httpLoginHelper } from "../helpers/http/httpLoginHelper";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Footer } from "../components/Footer";
-import { validateLogin } from "../helpers/validations/validateLogin";
+
+import { useForm } from "../hooks/useForm";
 import { useModal } from "../hooks/useModal";
+
+import { Credential } from "../models";
+import { httpLoginHelper } from "../helpers/http/httpLoginHelper";
+
 import { Modal } from "../components/Modal";
+import { Footer } from "../components/Footer";
+
+import { validateLogin } from "../helpers/validations/validateLogin";
 import { TypeModal } from "../constants/TypeModal";
+
 import '../styles/login.css';
 
 

@@ -1,0 +1,10 @@
+.create-task{
+    margin-top: 10px;
+}
+.form-create-task{
+    margin: 0 auto;
+    text-align: center;
+}
+.create-task > h2 {
+    text-align: center;
+}

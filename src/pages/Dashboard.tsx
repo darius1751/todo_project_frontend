@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
+
 import { DashboardNav } from "../components/DashboardNav";
+import { ColumnStateTask } from "../components/ColumnStateTask";
+import { Footer } from "../components/Footer";
+
 import { PersonStore } from "../store";
 import { PersonSlice } from "../store/slices/personSlice";
-import { ColumnStateTask } from "../components/ColumnStateTask";
+
 import { httpFindAllTasks } from "../helpers/http/httpFindAllTasks";
+
 import '../styles/dashboard.css';
-import { Footer } from "../components/Footer";
+
 export const Dashboard = ( ) => {
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
     const navigate = useNavigate();
@@ -20,7 +25,7 @@ export const Dashboard = ( ) => {
 
     },[])
     return (
-        <div className="dashboard">
+        <div className="dashboard dashboard-page">
             <DashboardNav/>
             <h2>Bienvenido: {person.name}</h2>
             
