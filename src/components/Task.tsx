@@ -2,10 +2,10 @@ import { Task as TaskModel } from "../models";
 import { OptionsTask } from "./OptionsTask";
 import { MouseEvent, useState } from "react";
 export type PropsTask = {
-    task:TaskModel & {createdAt:string}
+    task:TaskModel
 }
 export const Task = ({task}:PropsTask) => {
-    const date = new Date(task.createdAt);
+    const date = new Date(task.createdAt || Date.toString());
     const dateFormat = date.toLocaleDateString();
     const timeFormat =  date.toLocaleTimeString();
     const [visibleOptions, setVisibleOptions] = useState<boolean>(false);

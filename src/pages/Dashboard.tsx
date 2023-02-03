@@ -16,7 +16,7 @@ import '../styles/dashboard.css';
 export const Dashboard = ( ) => {
     const {person} = useSelector<PersonStore, PersonSlice>((state) => state.personStore);
     const navigate = useNavigate();
-    const [tasks, setTasks] = useState<any>({});
+    const [tasks, setTasks] = useState<any>({}); //sustituir ahorita
     useEffect(() => {
         if(!person.id)
             navigate('/login');
