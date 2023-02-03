@@ -1,15 +1,23 @@
 import { Task as TaskModel } from "../models";
-type PropsTask = {
+import { OptionsTask } from "./OptionsTask";
+import { MouseEvent, useState } from "react";
+export type PropsTask = {
     task:TaskModel
 }
 export const Task = ({task}:PropsTask) => {
-    const date = new Date(task.createdAt);
+    const date = new Date(task.createdAt || Date.toString());
     const dateFormat = date.toLocaleDateString();
     const timeFormat =  date.toLocaleTimeString();
+    const [visibleOptions, setVisibleOptions] = useState<boolean>(false);
+    const handleOptionsTask = (e:MouseEvent<any>) =>{
+        e.preventDefault();
+        console.log({task});
+        setVisibleOptions(true);        
+    }
     return (
-        <section className="task">
-            
-            <h4 className="task-name">{task.name}</h4>
+        <div>
+            <div className="task" onClick={handleOptionsTask}>
+                <h4 className="task-name">{task.name}</h4>
             <section className="task-description">
                 {task.description}
             </section>
@@ -18,7 +26,8 @@ export const Task = ({task}:PropsTask) => {
                 <br />
                 {timeFormat}
             </section>
-
-        </section>
+            </div>
+            { visibleOptions && <OptionsTask task={task} setVisibleOptions={setVisibleOptions}/>}
+        </div>
     )
 }

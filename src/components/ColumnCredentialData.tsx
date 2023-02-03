@@ -1,5 +1,3 @@
-import {Credential} from '../models';
-import {useForm} from '../hooks/useForm';
 import {KeyboardEvent, useState} from 'react';
 import { CredentialForm } from '../pages/Register';
 
